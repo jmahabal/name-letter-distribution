@@ -1,23 +1,12 @@
-import React, { Component } from 'react';
-import ColoredText from './ColoredText';
+import React from 'react'
+import LoginContainer from './LoginContainer'
+import LetterDistribution from './LetterDistribution'
 
-class App extends Component {
+const App = () => (
+  <div>
+    <LoginContainer />
+    <LetterDistribution />
+  </div>
+)
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: "Hello, world.",
-      color: "green"
-    }
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <ColoredText {...this.state}/>
-      </div>
-    );
-  }
-}
-
-export default App;
+export default App
