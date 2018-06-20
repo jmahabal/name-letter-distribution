@@ -13,14 +13,6 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    logOut: () => {
-      dispatch({ type: 'LOG_OUT' })
-    },
-  }
-}
-
 class App extends Component {
 
   constructor(props) {
@@ -52,4 +44,4 @@ class App extends Component {
 }
 
 // TODO: Extract into separate functional / presentational components
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps)(App)

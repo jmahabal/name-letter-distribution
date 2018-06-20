@@ -17,4 +17,33 @@
             text-align: center;
         }
     }
+    &--modal-inputs {
+        display: grid;
+        grid-template-columns: 1fr;
+        @media screen and (min-width: 780px) {
+            grid-template-columns: 2fr 2fr 1fr;
+        }
+    }
+    &--modal-input-field {
+        padding: 1em;
+        label {
+            font-family: $sans-serif;
+            input {
+                margin-left: 1em;
+            }
+        }
+    }
+}
+
+#modal {
+    opacity: 0;
+    padding: 2em;
+    border: 1px solid $color-base;
+    border-radius: $border-radius;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: $color-white;
+    display: flex;
 }

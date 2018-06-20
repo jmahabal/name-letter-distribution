@@ -13,6 +13,7 @@
   "author": "jmahabal@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "gsap": "^2.0.1",
     "lodash": "^4.17.10",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
