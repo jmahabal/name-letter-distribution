@@ -1,0 +1,20 @@
+.homepage {
+    &--login-button {
+        position: absolute;
+        top: $gutter;
+        right: $gutter;
+    }
+    &--intro-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 0 2*$gutter;
+        h1 {
+            margin: .5em auto;
+            text-align: center;
+        }
+    }
+}

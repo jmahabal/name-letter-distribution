@@ -1,12 +1,19 @@
-/* Common */
+// shared variables 
 @import "common/variables";
 @import "common/typography";
+@import "common/colors";
 
+// shared UI components
+// TODO: come up with a better name
 @import "ui/ui";
+
+// temporary file while figuring out organization
+@import "shame";
 
 html, body {
   margin: 0;
   padding: 0;
+  font-size: 16px;
 }
 
 *,

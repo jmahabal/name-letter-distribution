@@ -17,14 +17,32 @@ class LetterDistribution extends Component {
 
   constructor(props) {
     super(props);
+    // TODO: move to redux
+    this.state = {
+      loadingState: 'notloaded'
+    }
+  }
+
+  componentDidMount() {
+    // we can use mocky.io with a delay to simulate how a network call might take a while
+    // we would then load in what data was returned to the state / redux store and update the DOM
+    fetch("https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=5s")
+      .then(response => {
+        this.setState({ loadingState: 'loaded' })
+      })
+      .catch()
   }
 
   render() {
-    return (
-      <div>
-        <p>Distribution: {stringToDistribution(this.props.username)}</p>
-      </div>
-    );
+    if (this.state.loadingState === 'notloaded') {
+      return (<div className="loading-spinner"></div>)
+    } else {
+      return (
+        <div>
+          <p>Distribution: {stringToDistribution(this.props.username)}</p>
+        </div>
+      );
+    }
   }
 }
 

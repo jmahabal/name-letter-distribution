@@ -5,16 +5,46 @@
     border-radius: 2px;
     background: none;
     cursor: pointer;
+    &:hover {
+        background-color: $primary;
+        color: $white;
+    }
+    &__warning {
+        color: $warning;
+        border: 1px solid $warning;
+        &:hover {
+            background-color: $warning;
+            color: $white;
+        }
+    }
 }
 
-.button:hover {
-    background-color: $primary;
-    color: $white;
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-// not here
-.homepage--login-form {
-    display: flex;
-    align-content: center;
-    justify-content: center;
+// credit for spinner: https://stephanwagner.me/only-css-loading-spinner
+.loading-spinner {
+    position: relative;
+    padding-top: 2em;
+    &:before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        border-top-color: #333;
+        animation: spinner .6s linear infinite;
+    }
 }

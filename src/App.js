@@ -8,14 +8,15 @@ import LetterDistribution from './components/LetterDistribution';
 
 const mapStateToProps = state => {
   return {
-    loggedIn: state.loggedInState.isLoggedIn,
+    username: state.LoginUsername.username,
+    loggedIn: state.loggedInState.isLoggedIn
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     logOut: () => {
-      dispatch({type: 'LOG_OUT' })
+      dispatch({ type: 'LOG_OUT' })
     },
   }
 }
@@ -24,27 +25,31 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.props.logOut();
   }
 
   render() {
-    if (this.props.loggedIn === true) {
-      return (
-        <div>
-          {/* TODO: extract to a separate component */}
-          <p>You're logged in!</p>
-          <LetterDistribution />
-          <Button onClickFunction={this.props.logOut} buttonText="Log Out" />
+    return (
+      <div>
+        <LoginContainer />
+        <div className="homepage--intro-screen">
+          {this.props.loggedIn === true ? (
+            <div>
+              {/* TODO: extract to a separate, logged-in, state component */}
+              <h1>Welcome, {this.props.username}!</h1>
+              <LetterDistribution />
+            </div>
+          ) : (
+            <div>
+              <h1>Letter Distribution App</h1>
+              <p>This React application requests the user to log-in and then displays the distribution of letters in their username.</p>
+            </div>
+          )
+        }
         </div>
-      )
-    } else { 
-      return (
-        <div>
-          <LoginContainer />
-        </div>
-      )
-    }
+      </div>
+    )
   }
 }
 
+// TODO: Extract into separate functional / presentational components
 export default connect(mapStateToProps, mapDispatchToProps)(App)

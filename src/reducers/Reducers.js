@@ -23,7 +23,7 @@ const LoginPassword = (state = {}, action) => {
     }
 }
 
-const loggedInState = (state = {}, action) => {
+const loggedInState = (state = { isLoggedIn: false }, action) => {
     switch (action.type) {
         case 'LOG_IN':
             return Object.assign({}, state, {
