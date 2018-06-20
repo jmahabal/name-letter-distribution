@@ -1,1 +1,8 @@
-// TODO: add media queries
+// https://davidwalsh.name/write-media-queries-sass
+$tablet-width: 768px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}

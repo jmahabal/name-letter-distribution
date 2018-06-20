@@ -3,7 +3,7 @@ import Button from './UI/Button';
 import { TweenMax } from 'gsap';
 
 // TODO: extract out so that it can be shared
-const transitionTime = 1000;
+const transitionTime = 500;
 
 class Login extends Component {
 
@@ -13,16 +13,16 @@ class Login extends Component {
     this.fadeOutModal = this.fadeOutModal.bind(this);
   }
 
-  // FIXME: don't use div ids to locate a DOM element
+  // FIXME: don't use div ids to locate a DOM element (use refs?)
   // TODO: fade out background
-  // TODO: disable the login-button
-  // TODO: close modal on x mark or outside div
+  // TODO: disable the other login-button
+  // TODO: close modal on x mark click or outside div
   fadeInModal() {
-    TweenMax.to("#modal", transitionTime/1000, { y: "0", opacity: 1 });
+    TweenMax.to("#homepage--login-modal", transitionTime/1000, { y: "0", opacity: 1 });
   }
 
   fadeOutModal() {
-    TweenMax.to("#modal", transitionTime/1000, { 
+    TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
         y: "100", 
         opacity: 0, 
         onComplete: () => {
@@ -35,7 +35,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div id="modal">
+        <div id="homepage--login-modal" className="homepage--login-modal">
           <div className="homepage--modal-inputs">
             <div className="homepage--modal-input-field">
               <label htmlFor="username">Username

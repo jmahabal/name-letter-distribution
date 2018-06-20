@@ -17,7 +17,6 @@ class LetterDistribution extends Component {
 
   constructor(props) {
     super(props);
-    // TODO: move to redux
     this.state = {
       loadingState: 'notloaded'
     }
@@ -27,7 +26,7 @@ class LetterDistribution extends Component {
     // we can use mocky.io with a delay to simulate how a network call might take a while
     // we would then load in what data was returned to the state / redux store and update the DOM
     // FIXME: make sure to cancel call when component unmounts
-    fetch("https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=5s")
+    fetch("https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=3s")
       .then(response => {
         this.setState({ loadingState: 'loaded' })
       })
@@ -43,7 +42,7 @@ class LetterDistribution extends Component {
     } else {
       return (
         <div>
-          {/* TODO: display visually */}
+          {/* TODO: display visually with d3 */}
           <p>Distribution: {stringToDistribution(this.props.username)}</p>
         </div>
       );

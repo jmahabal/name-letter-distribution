@@ -2,9 +2,9 @@
 @import "common/variables";
 @import "common/typography";
 @import "common/colors";
+@import "common/mixins";
 
 // shared UI components
-// TODO: come up with a better name
 @import "ui/ui";
 
 // temporary file while figuring out organization

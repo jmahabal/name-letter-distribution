@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-// FIXME: combine the username and password
+// FIXME: combine the username and password into one sub-state
 const LoginUsername = (state = { username: "" }, action) => {
     switch (action.type) {
         case 'UPDATE_USERNAME':
