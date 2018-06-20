@@ -23,26 +23,25 @@ const LoginPassword = (state = {}, action) => {
     }
 }
 
-const loggedIn = (state = {}, action) => {
-    console.log(action, state)
+const loggedInState = (state = {}, action) => {
     switch (action.type) {
         case 'LOG_IN':
             return Object.assign({}, state, {
-                loggedIn: true
+                isLoggedIn: true
             })
         case 'LOG_OUT':
             return Object.assign({}, state, {
-                loggedIn: false
+                isLoggedIn: false
             })
         default:
             return state
     }
 }
 
-const LetterDistribution = combineReducers({
+const Reducers = combineReducers({
     LoginUsername,
     LoginPassword,
-    loggedIn
+    loggedInState
 })
 
-export default LetterDistribution
+export default Reducers

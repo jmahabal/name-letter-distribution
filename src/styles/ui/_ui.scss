@@ -1,0 +1,20 @@
+.button {
+    padding: 1em 2em;
+    color: $primary;
+    border: 1px solid $primary;
+    border-radius: 2px;
+    background: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: $primary;
+    color: $white;
+}
+
+// not here
+.homepage--login-form {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}

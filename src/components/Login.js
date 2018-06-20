@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from './UI/Button';
 
 class Login extends Component {
 
@@ -6,16 +7,11 @@ class Login extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    console.log(this.props)
-    this.props.logOut();
-  }
-
   render() {
     return (
       <div className="homepage--login-form">
-        <input type="text" onChange={this.props.updateUsername} value={this.props.username} />
-        <button onClick={this.props.logIn}>Log In</button>
+        Username: <input type="text" onChange={this.props.updateUsername} value={this.props.username} />
+        <Button onClickFunction={this.props.logIn} buttonText="Log In" />
       </div>
     )
   }
