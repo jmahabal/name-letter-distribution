@@ -4,9 +4,9 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import styles from './styles/main.scss';
 
-import LetterDistribution from './reducers/LetterDistribution'
+import Reducers from './reducers/Reducers'
 
-const store = createStore(LetterDistribution)
+const store = createStore(Reducers)
 
 import App from './App'
 

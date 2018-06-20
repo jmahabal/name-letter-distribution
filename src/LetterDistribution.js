@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { countBy } from 'lodash';
 
 const mapStateToProps = state => {
   return {
     username: state.LoginUsername.username
   }
+}
+
+// returns the distribution of characters of a string
+const stringToDistribution = text => {
+  return JSON.stringify(countBy(text));
 }
 
 class LetterDistribution extends Component {
@@ -16,7 +22,7 @@ class LetterDistribution extends Component {
   render() {
     return (
       <div>
-        <p>Distribution: {this.props.username}</p>
+        <p>Distribution: {stringToDistribution(this.props.username)}</p>
       </div>
     );
   }
