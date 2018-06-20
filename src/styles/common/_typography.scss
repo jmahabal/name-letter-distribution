@@ -1,7 +1,8 @@
-$sans: 'Roboto', sans-serif;
+$sans-serif: 'Roboto', sans-serif;
 $serif: 'EB Garamond', serif;
 
 $h1-font-size: 3em;
+$p-font-size: 1em;
 
 $text-max-width: 60ch;
 
@@ -12,7 +13,7 @@ h1 {
 }
 
 p {
-    font-family: $sans;
+    font-family: $sans-serif;
     max-width: $text-max-width;
     line-height: 1.4;
 }

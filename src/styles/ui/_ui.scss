@@ -1,20 +1,24 @@
+// TODO: add primary-dark and warning-dark colors for hover states
 .button {
     padding: 1em 2em;
-    color: $primary;
-    border: 1px solid $primary;
+    border: 1px solid $color-primary;
     border-radius: 2px;
-    background: none;
+    background: $color-primary;
+    color: $color-white;
     cursor: pointer;
+    font-size: $p-font-size;
+    font-family: $sans-serif;
     &:hover {
-        background-color: $primary;
-        color: $white;
+        background-color: $color-white;
+        color: $color-primary;
     }
     &__warning {
-        color: $warning;
-        border: 1px solid $warning;
+        background-color: $color-warning;
+        color: $color-white;
+        border: 1px solid $color-warning;
         &:hover {
-            background-color: $warning;
-            color: $white;
+            color: $color-warning;
+            background-color: $color-white;
         }
     }
 }
@@ -38,13 +42,13 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 20px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
         margin-top: -10px;
         margin-left: -10px;
         border-radius: 50%;
-        border: 2px solid #ccc;
-        border-top-color: #333;
+        border: 3px solid $color-base;
+        border-top-color: $color-primary;
         animation: spinner .6s linear infinite;
     }
 }
