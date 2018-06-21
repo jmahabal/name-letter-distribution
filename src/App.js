@@ -8,7 +8,7 @@ import LetterDistribution from './components/LetterDistribution';
 
 const mapStateToProps = state => {
   return {
-    username: state.LoginUsername.username,
+    username: state.Login.username,
     loggedIn: state.loggedInState.isLoggedIn
   }
 }

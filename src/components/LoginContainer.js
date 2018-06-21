@@ -5,8 +5,8 @@ import Login from './Login';
 
 const mapStateToProps = state => {
   return {
-    username: state.LoginUsername.username,
-    password: state.LoginPassword.password,
+    username: state.Login.username,
+    password: state.Login.password,
     isLoggedIn: state.loggedInState.isLoggedIn
   }
 }

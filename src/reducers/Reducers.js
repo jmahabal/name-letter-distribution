@@ -1,30 +1,19 @@
 import { combineReducers } from 'redux'
 
-// FIXME: combine the username and password into one sub-state
-const LoginUsername = (state = { username: "" }, action) => {
+const Login = (state = { username: "", password: "" }, action) => {
     switch (action.type) {
         case 'UPDATE_USERNAME':
             return Object.assign({}, state, {
                 username: action.username
             })
-        case 'LOG_OUT':
-            return Object.assign({}, state, {
-                username: ""
-            })
-        default:
-            return state
-    }
-}
-
-const LoginPassword = (state = { password: "" }, action) => {
-    switch (action.type) {
         case 'UPDATE_PASSWORD':
             return Object.assign({}, state, {
                 password: action.password
             })
         case 'LOG_OUT':
             return Object.assign({}, state, {
-                password: ""
+                password: "",
+                username: ""
             })
         default:
             return state
@@ -47,8 +36,7 @@ const loggedInState = (state = { isLoggedIn: false }, action) => {
 }
 
 const Reducers = combineReducers({
-    LoginUsername,
-    LoginPassword,
+    Login,
     loggedInState
 })
 

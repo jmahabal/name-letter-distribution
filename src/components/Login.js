@@ -14,7 +14,7 @@ class Login extends Component {
     this.fadeOutModalOnly = this.fadeOutModalOnly.bind(this);
   }
 
-  // FIXME: don't use div ids to locate a DOM element (use refs?)
+  // FIXME: don't use div ids/classes to locate a DOM element (use refs?)
   // TODO: disable the login button when modal is open
   // TODO: add input validation
   // TODO: add animation to modal enter/exit

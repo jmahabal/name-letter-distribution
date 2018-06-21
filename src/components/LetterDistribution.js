@@ -4,7 +4,7 @@ import { countBy } from 'lodash';
 
 const mapStateToProps = state => {
   return {
-    username: state.LoginUsername.username
+    username: state.Login.username
   }
 }
 
@@ -25,15 +25,12 @@ class LetterDistribution extends Component {
   componentDidMount() {
     // we can use mocky.io with a delay to simulate how a network call might take a while
     // we would then load in what data was returned to the state / redux store and update the DOM
-    // FIXME: make sure to cancel call when component unmounts
+    // FIXME: make sure to cancel call if component unmounts
     fetch("https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=3s")
       .then(response => {
         this.setState({ loadingState: 'loaded' })
       })
       .catch()
-  }
-
-  componentWillUnmount() {
   }
 
   render() {
