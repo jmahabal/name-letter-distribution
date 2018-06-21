@@ -26,3 +26,10 @@ I use Sass to organize my CSS code, using a BEM-y naming convention. This code i
 ### Testing
 
 I use Jest to test, but I only have unit tests for one function at the moment. For a more important application I would also want to test more fully, including function that manipulate the DOM. You can run the test suite via `yarn test`.
+
+### Improvements
+
+There are a ton of things I'd like to implement (apart from completing the functionality of the site and clearing any technical debt):
+
+* Code split to decrease the javascript bundle size
+* Build the CSS into its own file, instead of piggybacking off of the javascript
