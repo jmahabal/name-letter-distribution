@@ -12,15 +12,15 @@ class Login extends Component {
     this.fadeInModal = this.fadeInModal.bind(this);
     this.fadeOutModal = this.fadeOutModal.bind(this);
     this.fadeOutModalOnly = this.fadeOutModalOnly.bind(this);
-
   }
 
   // FIXME: don't use div ids to locate a DOM element (use refs?)
-  // TODO: disable the other login button
-  // TODO: add password strength "checks"
+  // TODO: disable the login button when modal is open
+  // TODO: add input validation
+  // TODO: add animation to modal enter/exit
+  // TODO: ability to press enter to submit form
   fadeInModal() {
     TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
-      y: "0", 
       opacity: 1 
     });
     TweenMax.to(".homepage--login-background", transitionTime/1000, { 
@@ -30,7 +30,6 @@ class Login extends Component {
 
   fadeOutModal() {
     TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
-      y: "100", 
       opacity: 0, 
       onComplete: this.props.logIn
     })
@@ -40,10 +39,8 @@ class Login extends Component {
   }
 
   // FIXME: figure out the best way to pass in a function to fadeOutModal
-
   fadeOutModalOnly() {
     TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
-      y: "100", 
       opacity: 0 
     })
     TweenMax.to(".homepage--login-background", transitionTime/1000, { 
@@ -69,12 +66,10 @@ class Login extends Component {
             <div className="homepage--modal-input-field">
               <label htmlFor="password">
                 <span>Password:</span>
-                {/* FIXME: change to type password */}
-                <input type="text" onChange={this.props.updatePassword} value={this.props.password} name="password" />
+                <input type="password" onChange={this.props.updatePassword} value={this.props.password} name="password" />
               </label>
             </div>
-            <Button onClickFunction={this.fadeOutModal}
-                    buttonText={"Sign In"} />
+            <Button onClickFunction={this.fadeOutModal} buttonText={"Sign In"} />
           </div>
         </div>
         <div className="homepage--login-button">

@@ -1,5 +1,5 @@
 // https://davidwalsh.name/write-media-queries-sass
-$tablet-width: 768px;
+$tablet-width: 1024px;
 
 @mixin tablet {
   @media (min-width: #{$tablet-width}) {

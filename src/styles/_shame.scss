@@ -27,7 +27,7 @@
     }
     &--login-modal {
         opacity: 0;
-        padding: 3*$gutter;
+        padding: 3*$gutter 3*$gutter $gutter 3*$gutter;
         border-radius: $border-radius;
         max-width: 80vw;
         width: 100%;
@@ -40,8 +40,8 @@
     }
     &--login-modal-close {
         position: absolute;
-        top: 0.5*$gutter;
-        right: 0.5*$gutter;
+        top: $gutter;
+        right: $gutter;
         cursor: pointer;
     }
     &--modal-inputs {
@@ -60,10 +60,13 @@
         text-align: center;
         label {
             font-family: $sans-serif;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            grid-column-gap: 1em;
             input {
                 font-size: $p-font-size;
                 padding: 1em;
-                margin-left: 1em;
             }
         }
     }
