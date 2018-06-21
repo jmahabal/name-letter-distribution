@@ -1,5 +1,4 @@
 // TODO​: use these actions instead of hard-coding
-
 export const LOG_IN = () => ({
   type: 'LOG_IN'
 })

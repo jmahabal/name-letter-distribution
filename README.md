@@ -11,7 +11,7 @@ We use webpack to build our application. When we develop, we can set webpack in 
 
 ## Notes
 
-Throughout my code I've included `FIXME`s or `TODO`s, which are highlighted in my editor, which makes it easy for me to maintain development speed. Of course, this is no substitute for Github issues or JIRA, but it works while the project and technical debt are still small.
+Throughout my code I've included `FIXME`s or `TODO`s, which are highlighted in my editor, which makes it easy for me to maintain development speed. I can also parse my code and output a list of outstanding issues. Of course, this is no substitute for Github issues or JIRA, but it works while the project and technical debt are still small.
 
 ### State Management
 
@@ -21,8 +21,8 @@ The `LetterDistribution` component uses the Redux application state, but also ma
 
 ### Design Systems
 
-I use Sass to organize my CSS code. This code is kept in `src/styles`, and is injected into our javascript file at build time. The entry file is `main.scss`, which imports various variables from `common/` before using them elsewhere. `ui/` contains CSS for things such as the loading icon and the base button component. I also have a file called `_shame.scss`, which contains CSS that I haven't properly organized yet.
+I use Sass to organize my CSS code, using a BEM-y naming convention. This code is kept in `src/styles`, and is injected into our javascript file at build time. The entry file is `main.scss`, which imports various variables from `common/` before using them elsewhere. `ui/` contains CSS for things such as the loading icon and the base button component. I also have a file called `_shame.scss`, which contains CSS that I haven't properly organized yet.
 
 ### Testing
 
-I don't have tests currently implemented.
+I use Jest to test, but I only have unit tests for one function at the moment. For a more important application I would also want to test more fully, including function that manipulate the DOM. You can run the test suite via `yarn test`.

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from './UI/Button';
 import { TweenMax } from 'gsap';
 import Icon from './UI/Icon'
+import validation from '../utils/validation';
 
 const transitionTime = 500;
 
@@ -16,9 +17,8 @@ class Login extends Component {
 
   // FIXME: don't use div ids/classes to locate a DOM element (use refs?)
   // TODO: disable the login button when modal is open
-  // TODO: add input validation
-  // TODO: add animation to modal enter/exit
   // TODO: ability to press enter to submit form
+  // TODO: for the password error, display a specific message
   fadeInModal() {
     TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
       opacity: 1 
@@ -29,13 +29,15 @@ class Login extends Component {
   }
 
   fadeOutModal() {
-    TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
-      opacity: 0, 
-      onComplete: this.props.logIn
-    })
-    TweenMax.to(".homepage--login-background", transitionTime/1000, { 
-      opacity: 0
-    });
+    if (validation(this.props.password)) {
+      TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
+        opacity: 0, 
+        onComplete: this.props.logIn
+      })
+      TweenMax.to(".homepage--login-background", transitionTime/1000, { 
+        opacity: 0
+      });
+    }
   }
 
   // FIXME: figure out the best way to pass in a function to fadeOutModal
@@ -66,7 +68,10 @@ class Login extends Component {
             <div className="homepage--modal-input-field">
               <label htmlFor="password">
                 <span>Password:</span>
-                <input type="password" onChange={this.props.updatePassword} value={this.props.password} name="password" />
+                <input className={validation(this.props.password) ? "homepage--modal-input" : "homepage--modal-input__error"} 
+                       type="password" onChange={this.props.updatePassword} 
+                       value={this.props.password} 
+                       name="password" />
               </label>
             </div>
             <Button onClickFunction={this.fadeOutModal} buttonText={"Sign In"} />

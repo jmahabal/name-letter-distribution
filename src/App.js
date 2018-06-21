@@ -26,7 +26,6 @@ class App extends Component {
         <div className="homepage--intro-screen">
           {this.props.loggedIn === true ? (
             <div>
-              {/* TODO: extract to a separate, logged-in, state component */}
               <h1>Welcome, {this.props.username}!</h1>
               <LetterDistribution />
             </div>
@@ -44,4 +43,4 @@ class App extends Component {
 }
 
 // TODO: Extract into separate functional / presentational components
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(App);
