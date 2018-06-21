@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from './UI/Button';
 import { TweenMax } from 'gsap';
+import Icon from './UI/Icon'
 
 // TODO: extract out so that it can be shared
 const transitionTime = 500;
@@ -17,6 +18,7 @@ class Login extends Component {
   // TODO: fade out background
   // TODO: disable the other login-button
   // TODO: close modal on x mark click or outside div
+  // TODO: add password strength "checks"
   fadeInModal() {
     TweenMax.to("#homepage--login-modal", transitionTime/1000, { y: "0", opacity: 1 });
   }
@@ -36,6 +38,9 @@ class Login extends Component {
     return (
       <div>
         <div id="homepage--login-modal" className="homepage--login-modal">
+          <div className="homepage--login-modal-close" onClick={this.fadeOutModal}>
+            <Icon type="close"/>
+          </div>
           <div className="homepage--modal-inputs">
             <div className="homepage--modal-input-field">
               <label htmlFor="username">Username

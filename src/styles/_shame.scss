@@ -29,6 +29,12 @@
         background: $color-white;
         display: flex;
     }
+    &--login-modal-close {
+        position: absolute;
+        top: 0.5*$gutter;
+        right: 0.5*$gutter;
+        cursor: pointer;
+    }
     &--modal-inputs {
         display: grid;
         grid-template-columns: 1fr;
