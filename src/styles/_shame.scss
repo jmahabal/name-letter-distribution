@@ -61,9 +61,13 @@
         label {
             font-family: $sans-serif;
             display: grid;
-            grid-template-columns: auto 1fr;
+            grid-template-columns: 1fr;
+            @include tablet {
+                grid-template-columns: auto 1fr;
+            }
             align-items: center;
             grid-column-gap: 1em;
+            grid-row-gap: 1em;
             input {
                 font-size: $p-font-size;
                 padding: 1em;
