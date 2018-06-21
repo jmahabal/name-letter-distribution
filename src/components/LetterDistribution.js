@@ -40,6 +40,7 @@ class LetterDistribution extends Component {
       return (
         <div>
           {/* TODO: display visually with d3 */}
+          <p>Thanks for waiting, here's your data.</p>
           <p>Distribution: {stringToDistribution(this.props.username)}</p>
         </div>
       );
