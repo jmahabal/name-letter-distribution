@@ -3,7 +3,6 @@ import Button from './UI/Button';
 import { TweenMax } from 'gsap';
 import Icon from './UI/Icon'
 
-// TODO: extract out so that it can be shared
 const transitionTime = 500;
 
 class Login extends Component {
@@ -12,45 +11,66 @@ class Login extends Component {
     super(props);
     this.fadeInModal = this.fadeInModal.bind(this);
     this.fadeOutModal = this.fadeOutModal.bind(this);
+    this.fadeOutModalOnly = this.fadeOutModalOnly.bind(this);
+
   }
 
   // FIXME: don't use div ids to locate a DOM element (use refs?)
-  // TODO: fade out background
-  // TODO: disable the other login-button
-  // TODO: close modal on x mark click or outside div
+  // TODO: disable the other login button
   // TODO: add password strength "checks"
   fadeInModal() {
-    TweenMax.to("#homepage--login-modal", transitionTime/1000, { y: "0", opacity: 1 });
+    TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
+      y: "0", 
+      opacity: 1 
+    });
+    TweenMax.to(".homepage--login-background", transitionTime/1000, { 
+      opacity: 1
+    });
   }
 
   fadeOutModal() {
     TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
-        y: "100", 
-        opacity: 0, 
-        onComplete: () => {
-          this.props.logIn();
-        }
-      }
-    )
+      y: "100", 
+      opacity: 0, 
+      onComplete: this.props.logIn
+    })
+    TweenMax.to(".homepage--login-background", transitionTime/1000, { 
+      opacity: 0
+    });
+  }
+
+  // FIXME: figure out the best way to pass in a function to fadeOutModal
+
+  fadeOutModalOnly() {
+    TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
+      y: "100", 
+      opacity: 0 
+    })
+    TweenMax.to(".homepage--login-background", transitionTime/1000, { 
+      opacity: 0
+    });
   }
 
   render() {
     return (
       <div>
+        <div className="homepage--login-background" onClick={this.fadeOutModalOnly}></div>
         <div id="homepage--login-modal" className="homepage--login-modal">
-          <div className="homepage--login-modal-close" onClick={this.fadeOutModal}>
+          <div className="homepage--login-modal-close" onClick={this.fadeOutModalOnly}>
             <Icon type="close"/>
           </div>
           <div className="homepage--modal-inputs">
             <div className="homepage--modal-input-field">
-              <label htmlFor="username">Username
-              <input type="text" onChange={this.props.updateUsername} value={this.props.username} name="username" />
+              <label htmlFor="username">
+                <span>Username:</span>
+                <input type="text" onChange={this.props.updateUsername} value={this.props.username} name="username" />
             </label>
             </div>
             <div className="homepage--modal-input-field">
-              <label htmlFor="password">Password
-              {/* FIXME: change to type password */}
-              <input type="text" onChange={this.props.updatePassword} value={this.props.password} name="password" />
+              <label htmlFor="password">
+                <span>Password:</span>
+                {/* FIXME: change to type password */}
+                <input type="text" onChange={this.props.updatePassword} value={this.props.password} name="password" />
               </label>
             </div>
             <Button onClickFunction={this.fadeOutModal}

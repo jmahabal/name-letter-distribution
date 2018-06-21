@@ -3,6 +3,7 @@
         position: absolute;
         top: $gutter;
         right: $gutter;
+        z-index: 1;
     }
     &--intro-screen {
         display: flex;
@@ -17,16 +18,24 @@
             text-align: center;
         }
     }
+    &--login-background {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: linear-gradient(180deg, $color-gradient-a 0%, $color-gradient-b 100%);
+        opacity: 0;
+    }
     &--login-modal {
         opacity: 0;
-        padding: 2em;
-        border: 1px solid $color-base;
+        padding: 3*$gutter;
         border-radius: $border-radius;
+        max-width: 80vw;
+        width: 100%;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        background: $color-white;
+        background: rgba(255, 255, 255, 0.7);
         display: flex;
     }
     &--login-modal-close {
@@ -37,16 +46,23 @@
     }
     &--modal-inputs {
         display: grid;
+        grid-column-gap: $gutter;
+        grid-row-gap: $gutter;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
         grid-template-columns: 1fr;
         @include tablet {
             grid-template-columns: 2fr 2fr 1fr;
         }
     }
     &--modal-input-field {
-        padding: 1em;
+        text-align: center;
         label {
             font-family: $sans-serif;
             input {
+                font-size: $p-font-size;
+                padding: 1em;
                 margin-left: 1em;
             }
         }
