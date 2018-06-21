@@ -26,7 +26,7 @@ class App extends Component {
         <div className="homepage--intro-screen">
           {this.props.loggedIn === true ? (
             <div>
-              <h1>Welcome, {this.props.username}!</h1>
+              <h1>Welcome, {this.props.username}! 🎉</h1>
               <LetterDistribution />
             </div>
           ) : (

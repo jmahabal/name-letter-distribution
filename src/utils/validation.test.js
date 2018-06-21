@@ -1,4 +1,4 @@
-const validation = require('./validation');
+import validation from './validation';
 
 // FIXME: combine into one test sequence
 it('should satisfy the password criteria', () => {

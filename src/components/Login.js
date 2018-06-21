@@ -18,7 +18,8 @@ class Login extends Component {
   // FIXME: don't use div ids/classes to locate a DOM element (use refs?)
   // TODO: disable the login button when modal is open
   // TODO: ability to press enter to submit form
-  // TODO: for the password error, display a specific message
+  // TODO: display a specific message for the password error
+  // TODO: bad UI to show an error before user has a chance to enter anything into field
   fadeInModal() {
     TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
       opacity: 1 
@@ -28,6 +29,7 @@ class Login extends Component {
     });
   }
 
+  // FIXME: figure out the best way to pass in a function to fadeOutModal instead of two functions
   fadeOutModal() {
     if (validation(this.props.password)) {
       TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
@@ -40,7 +42,6 @@ class Login extends Component {
     }
   }
 
-  // FIXME: figure out the best way to pass in a function to fadeOutModal
   fadeOutModalOnly() {
     TweenMax.to("#homepage--login-modal", transitionTime/1000, { 
       opacity: 0 
